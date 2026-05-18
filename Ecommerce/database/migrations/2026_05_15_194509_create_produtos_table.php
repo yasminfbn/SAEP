@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('produtos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table -> string('nome');
+            $table -> string('marca');
+            $table -> string('estoque') -> default (0);
         });
     }
 
