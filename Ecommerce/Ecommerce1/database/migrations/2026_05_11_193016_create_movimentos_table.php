@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('movimentos', function (Blueprint $table) {
             $table->id();
+            $table -> foreignId('produto_id')-> constraint() -> cascadeOnDelete();
+            //migretion que cria uma foreign key com comportamento automático de exclusão em cascata
+            //exclusão em cascata: se um resgistro da tabela produtos for excluído, todos os registros da tabela atual 
+            //referenciam esse produto_id também serão apagados automaticamente
+            $table -> integer('quantidade');
+            $table -> enum('tipo', ['entrada', 'saída']);
             $table->timestamps();
         });
     }
