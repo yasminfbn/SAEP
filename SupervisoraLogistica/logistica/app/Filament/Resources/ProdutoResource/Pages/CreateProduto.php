@@ -3,21 +3,23 @@
 namespace App\Filament\Resources\ProdutoResource\Pages;
 
 use App\Filament\Resources\ProdutoResource;
-use App\Models\Categoria;
 use Filament\Actions;
-use Filament\Notifications\Notification;
 use Filament\Resources\Pages\CreateRecord;
+use Filament\Notifications\Notification;
 
 class CreateProduto extends CreateRecord
 {
     protected static string $resource = ProdutoResource::class;
 
+
     protected function afterCreate(): void
     {
         Notification::make()
-            ->title('Deu tudo certo!')
-            ->success()
-            ->body('Registrado um novo produto.')
-            ->send();
+        ->title('Deu tudo certo!')
+        ->body('Produto Registrado.')
+        ->success()
+        ->send();
+
+        $this->halt();
     }
 }
