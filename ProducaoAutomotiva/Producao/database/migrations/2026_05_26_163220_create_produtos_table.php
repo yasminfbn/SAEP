@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('fabricante');
             $table->decimal('preco', 10, 2);
             $table->integer('quantidade');
-            $table->string('numero_serie');
+            $table->numero_serie('numero_serie');
             $table->integer('vida_util_horas');
             $table->string('localizacao');
             $table->foreignId('robo_id')->constrained()->cascadeOnDelete();
